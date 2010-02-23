@@ -5,7 +5,7 @@
 Summary:	Tokyo Cabinet: a modern implementation of DBM
 Name:		tokyocabinet
 Version:	1.4.42
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Libraries
 License:	LGPL
 URL:		http://1978th.net/tokyocabinet/
