@@ -1,0 +1,81 @@
+diff -Naur tokyocabinet-1.4.21/configure.in tokyocabinet-1.4.21.oden/configure.in
+--- tokyocabinet-1.4.21/configure.in	2009-05-09 14:08:26.000000000 +0200
++++ tokyocabinet-1.4.21.oden/configure.in	2009-05-21 18:12:16.000000000 +0200
+@@ -32,25 +32,13 @@
+ 
+ # Building flags
+ MYCFLAGS="-std=c99 -Wall -fPIC -fsigned-char -O2"
+-MYCPPFLAGS="-I. -I\$(INCLUDEDIR) -I$HOME/include -I/usr/local/include"
+-MYCPPFLAGS="$MYCPPFLAGS -DNDEBUG -D_GNU_SOURCE=1 -D_REENTRANT -D__EXTENSIONS__"
+-MYLDFLAGS="-L. -L\$(LIBDIR) -L$HOME/lib -L/usr/local/lib"
++MYCPPFLAGS="-I. -I\$(INCLUDEDIR) -DNDEBUG -D_GNU_SOURCE=1 -D_REENTRANT -D__EXTENSIONS__"
++MYLDFLAGS="-L. -L\$(LIBDIR)"
+ MYCMDLDFLAGS=""
+ MYRUNPATH="\$(LIBDIR)"
+ MYLDLIBPATHENV="LD_LIBRARY_PATH"
+ MYPOSTCMD="true"
+ 
+-# Building paths
+-PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+-PATH="$PATH:/opt/SUNWspro/bin:/usr/ccs/bin:/usr/xpg4/bin:/usr/xpg6/bin:/usr/ucb"
+-CPATH="$HOME/include:/usr/local/include:$CPATH"
+-LIBRARY_PATH="$HOME/lib:/usr/local/lib:$LIBRARY_PATH"
+-LD_LIBRARY_PATH="$HOME/lib:/usr/local/lib:$LD_LIBRARY_PATH"
+-PKG_CONFIG_PATH="$HOME/lib/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+-export PATH CPATH LIBRARY_PATH LD_LIBRARY_PATH PKG_CONFIG_PATH
+-
+-
+-
+ #================================================================
+ # Options
+ #================================================================
+@@ -104,7 +92,7 @@
+ if test "$enable_fastest" = "yes"
+ then
+   MYLIBOBJFILES="tokyocabinet_all.o"
+-  MYCFLAGS="-std=c99 -Wall -fPIC -pedantic -fsigned-char -O3"
++  MYCFLAGS="-std=c99 -Wall -fPIC -pedantic -fsigned-char $CFLAGS"
+   MYCFLAGS="$MYCFLAGS -fomit-frame-pointer -fforce-addr -minline-all-stringops"
+   MYCPPFLAGS="$MYCPPFLAGS -D_MYFASTEST"
+   enables="$enables (fastest)"
+@@ -228,16 +216,6 @@
+ # C compiler
+ AC_PROG_CC
+ 
+-# Reset variables
+-if test "$GCC" != "yes"
+-then
+-  AC_MSG_WARN([another compiler except for GCC was detected])
+-  MYCFLAGS=""
+-fi
+-test -n "$CFLAGS" && MYCFLAGS="$CFLAGS $MYCFLAGS"
+-test -n "$CPPFLAGS" && MYCPPFLAGS="$CPPFLAGS $MYCPPFLAGS"
+-test -n "$LDFLAGS" && MYLDFLAGS="$LDFLAGS $MYLDFLAGS"
+-
+ # Byte order
+ AC_C_BIGENDIAN(MYCPPFLAGS="$MYCPPFLAGS -D_MYBIGEND")
+ 
+diff -Naur tokyocabinet-1.4.21/Makefile.in tokyocabinet-1.4.21.oden/Makefile.in
+--- tokyocabinet-1.4.21/Makefile.in	2009-05-15 12:38:57.000000000 +0200
++++ tokyocabinet-1.4.21.oden/Makefile.in	2009-05-21 17:58:39.000000000 +0200
+@@ -54,8 +54,8 @@
+ LDFLAGS = @MYLDFLAGS@
+ CMDLDFLAGS = @MYCMDLDFLAGS@
+ LIBS = @LIBS@
+-LDENV = LD_RUN_PATH=/lib:/usr/lib:$(LIBDIR):$(HOME)/lib:/usr/local/lib:@MYRUNPATH@:.
+-RUNENV = @MYLDLIBPATHENV@=.:/lib:/usr/lib:$(LIBDIR):$(HOME)/lib:/usr/local/lib:@MYRUNPATH@
++LDENV = 
++RUNENV = @MYLDLIBPATHENV@=.:$(LIBDIR)
+ POSTCMD = @MYPOSTCMD@
+ 
+ 
+diff -Naur tokyocabinet-1.4.21/tokyocabinet.pc.in tokyocabinet-1.4.21.oden/tokyocabinet.pc.in
+--- tokyocabinet-1.4.21/tokyocabinet.pc.in	2008-02-18 08:25:18.000000000 +0100
++++ tokyocabinet-1.4.21.oden/tokyocabinet.pc.in	2009-05-21 17:58:39.000000000 +0200
+@@ -10,5 +10,5 @@
+ Name: Tokyo Cabinet
+ Description: a modern implementation of DBM
+ Version: @PACKAGE_VERSION@
+-Libs: -L${libdir} -ltokyocabinet @LIBS@
++Libs: -L${libdir} -ltokyocabinet
+ Cflags: -I${includedir}
