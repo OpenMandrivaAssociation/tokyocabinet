@@ -5,7 +5,7 @@
 Summary:	Tokyo Cabinet: a modern implementation of DBM
 Name:		tokyocabinet
 Version:	1.4.47
-Release:	%mkrel 2
+Release:	%mkrel 4
 Group:		System/Libraries
 License:	LGPL
 URL:		http://1978th.net/tokyocabinet/
@@ -216,3 +216,133 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/tcawmgr.conf
 %attr(0755,root,root) /var/www/cgi-bin/tcawmgr.cgi
+
+
+%changelog
+* Fri May 06 2011 Oden Eriksson <oeriksson@mandriva.com> 1.4.47-2mdv2011.0
++ Revision: 670713
+- mass rebuild
+
+* Tue Feb 15 2011 Oden Eriksson <oeriksson@mandriva.com> 1.4.47-1
++ Revision: 637867
+- 1.4.47
+
+* Mon Aug 09 2010 Oden Eriksson <oeriksson@mandriva.com> 1.4.46-1mdv2011.0
++ Revision: 568101
+- 1.4.46
+
+* Tue Feb 23 2010 Oden Eriksson <oeriksson@mandriva.com> 1.4.42-2mdv2010.1
++ Revision: 510237
+- rebuild
+- not really unmaintained...
+
+  + Guillaume Rousse <guillomovitch@mandriva.org>
+    - unmaintained webapp cleaning
+
+* Sun Feb 14 2010 Oden Eriksson <oeriksson@mandriva.com> 1.4.42-1mdv2010.1
++ Revision: 505810
+- 1.4.42
+
+* Tue Jan 19 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.4.41-2mdv2010.1
++ Revision: 493875
+- rely on filetrigger for reloading apache configuration begining with 2010.1, rpm-helper macros otherwise
+
+* Sat Dec 19 2009 Oden Eriksson <oeriksson@mandriva.com> 1.4.41-1mdv2010.1
++ Revision: 480144
+- 1.4.41
+
+* Sun Nov 08 2009 Frederik Himpe <fhimpe@mandriva.org> 1.4.37-1mdv2010.1
++ Revision: 463123
+- Update to new version 1.4.37
+- Fix URL
+
+* Wed Aug 19 2009 Oden Eriksson <oeriksson@mandriva.com> 1.4.31-1mdv2010.0
++ Revision: 418133
+- 1.4.31
+
+* Mon Jun 22 2009 Oden Eriksson <oeriksson@mandriva.com> 1.4.27-1mdv2010.0
++ Revision: 387955
+- 1.4.27
+- rediffed patches
+
+* Sat May 30 2009 Frederik Himpe <fhimpe@mandriva.org> 1.4.23-1mdv2010.0
++ Revision: 381527
+- update to new version 1.4.23
+
+* Thu May 21 2009 Oden Eriksson <oeriksson@mandriva.com> 1.4.21-1mdv2010.0
++ Revision: 378437
+- bump major
+- 1.4.21
+- rediff patches
+
+* Sat Mar 07 2009 Oden Eriksson <oeriksson@mandriva.com> 1.4.9-1mdv2009.1
++ Revision: 351896
+- 1.4.9
+- rediffed P0
+- added P1 to make it link against -llzmalib
+
+* Tue Jan 20 2009 Oden Eriksson <oeriksson@mandriva.com> 1.4.0-1mdv2009.1
++ Revision: 331726
+- 1.4.0
+- rediffed P0
+
+* Mon Nov 24 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.20-1mdv2009.1
++ Revision: 306339
+- 1.3.20
+
+* Thu Nov 13 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.18-1mdv2009.1
++ Revision: 302651
+- 1.3.18
+- rediffed P0
+
+* Mon Oct 27 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.15-1mdv2009.1
++ Revision: 297549
+- 1.3.15
+- rediffed P0
+
+* Thu Sep 04 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.7-1mdv2009.0
++ Revision: 280751
+- 1.3.7
+
+* Thu Aug 28 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.5-1mdv2009.0
++ Revision: 276863
+- 1.3.5
+
+* Thu Jul 31 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.1-1mdv2009.0
++ Revision: 258789
+- 1.3.1
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Mon May 26 2008 Oden Eriksson <oeriksson@mandriva.com> 1.2.6-1mdv2009.0
++ Revision: 211345
+- 1.2.6
+- added the tcawmgr cgi and apache config
+
+* Sun Apr 20 2008 Oden Eriksson <oeriksson@mandriva.com> 1.2.4-1mdv2009.0
++ Revision: 195935
+- 1.2.4
+- 1.2.3
+- new major (3)
+
+* Wed Jan 30 2008 Oden Eriksson <oeriksson@mandriva.com> 1.1.12-1mdv2008.1
++ Revision: 160312
+- 1.1.12
+
+* Tue Jan 22 2008 Oden Eriksson <oeriksson@mandriva.com> 1.1.11-1mdv2008.1
++ Revision: 156116
+- 1.1.11
+
+* Fri Jan 11 2008 Oden Eriksson <oeriksson@mandriva.com> 1.1.8-1mdv2008.1
++ Revision: 147927
+- 1.1.8
+
+* Thu Jan 03 2008 Oden Eriksson <oeriksson@mandriva.com> 1.1.7-1mdv2008.1
++ Revision: 141830
+- fix deps
+- import tokyocabinet
+
+
+* Thu Jan 03 2008 Oden Eriksson <oeriksson@mandriva.com> 1.1.7-1mdv2008.1
+- initial Mandriva package
