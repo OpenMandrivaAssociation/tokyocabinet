@@ -104,9 +104,7 @@ mv %{buildroot}%{_libdir}/tcawmgr.cgi %{buildroot}/var/www/cgi-bin/
 install -d %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d
 cat > %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d/tcawmgr.conf << EOF
 <Location /cgi-bin/tcawmgr.cgi>
-    Order Deny,Allow
-    Deny from All
-    Allow from 127.0.0.1
+    Require local granted
     ErrorDocument 403 "Access denied per %{_sysconfdir}/httpd/conf/webapps.d/tcawmgr.conf"
 </Location>
 EOF
