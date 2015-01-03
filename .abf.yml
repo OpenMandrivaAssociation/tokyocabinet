@@ -1,2 +1,4 @@
+removed_sources:
+  tokyocabinet-1.4.47.tar.gz: 18608ac2e6e469e20d1c36ae1117661bb47901c4
 sources:
-  "tokyocabinet-1.4.47.tar.gz": 18608ac2e6e469e20d1c36ae1117661bb47901c4
+  tokyocabinet-1.4.48.tar.gz: b26a0a1ae7a05d2e1cc06cc518838cdd552e65aa
