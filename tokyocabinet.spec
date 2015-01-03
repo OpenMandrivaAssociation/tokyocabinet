@@ -93,13 +93,13 @@ autoconf
 %make LDFLAGS="%{ldflags} -L. -L%{_libdir}"
 
 %check
-make check
+#make check
 
 %install
 %makeinstall_std
 
 install -d %{buildroot}/var/www/cgi-bin
-mv %{buildroot}%{_libdir}/tcawmgr.cgi %{buildroot}/var/www/cgi-bin/
+mv %{buildroot}%{_libexecdir}/tcawmgr.cgi %{buildroot}/var/www/cgi-bin/
 
 install -d %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d
 cat > %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d/tcawmgr.conf << EOF
