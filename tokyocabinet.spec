@@ -7,7 +7,7 @@
 Summary:	Tokyo Cabinet: a modern implementation of DBM
 Name:		tokyocabinet
 Version:	1.4.48
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPL
 Url:		http://fallabs.com/tokyocabinet/
@@ -16,7 +16,7 @@ Patch0:		tokyocabinet-mdv_conf.diff
 Patch1:		tokyocabinet-1.4.9-lzmalib_linkage_fix.diff
 
 BuildRequires:	bzip2-devel
-BuildRequires:	liblzo-devel
+BuildRequires:	lzo-devel
 BuildRequires:	lzmalib-devel
 BuildRequires:	pkgconfig(zlib)
 
