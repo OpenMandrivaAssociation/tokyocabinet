@@ -10,7 +10,7 @@ Version:	1.4.48
 Release:	4
 Group:		System/Libraries
 License:	LGPL
-Url:		http://fallabs.com/tokyocabinet/
+Url:		https://fallabs.com/tokyocabinet/
 Source0:	http://fallabs.com/tokyocabinet/%{name}-%{version}.tar.gz
 Patch0:		tokyocabinet-mdv_conf.diff
 Patch1:		tokyocabinet-1.4.9-lzmalib_linkage_fix.diff
