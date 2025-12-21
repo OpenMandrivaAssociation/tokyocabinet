@@ -15,6 +15,11 @@ Source0:	http://fallabs.com/tokyocabinet/%{name}-%{version}.tar.gz
 Patch0:		tokyocabinet-mdv_conf.diff
 Patch1:		tokyocabinet-1.4.9-lzmalib_linkage_fix.diff
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	bzip2-devel
 BuildRequires:	lzo-devel
 BuildRequires:	lzmalib-devel
